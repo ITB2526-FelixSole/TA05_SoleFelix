@@ -10,3 +10,145 @@
     <p>Aquesta és la meva pàgina web d'index bàsica.</p>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Wireframe Horizontal</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #111;
+        font-family: Arial, sans-serif;
+        color: #ccc;
+    }
+
+    .box {
+        border: 2px solid #666;
+        background: #222;
+        padding: 10px;
+        margin: 8px;
+        text-align: center;
+    }
+
+    /* Contenedor general horizontal */
+    .layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    /* Header superior */
+    .top-header {
+        height: 80px;
+    }
+
+    /* Zona central horizontal */
+    .middle-row {
+        display: flex;
+        flex: 1;
+    }
+
+    /* Nav lateral */
+    .nav-column {
+        width: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* Contenido principal */
+    .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Secciones cuadradas internas */
+    .section {
+        border: 2px solid #555;
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    .section-header,
+    .section-footer {
+        margin-bottom: 8px;
+    }
+
+    .inner-columns {
+        display: flex;
+        gap: 10px;
+    }
+
+    .p-box {
+        flex: 1;
+        border: 2px solid #777;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Footer inferior */
+    .bottom-footer {
+        height: 80px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- HEADER SUPERIOR -->
+    <div class="box top-header">header</div>
+
+    <div class="middle-row">
+
+        <!-- NAV LATERAL -->
+        <div class="nav-column">
+            <div class="box">header</div>
+            <div class="box" style="flex:1;">nav</div>
+            <div class="box">footer</div>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="content">
+
+            <div class="box">header</div>
+
+            <!-- SECCIÓN 1 -->
+            <div class="section">
+                <div class="box section-header">header</div>
+                <div class="inner-columns">
+                    <div class="p-box">p</div>
+                    <div class="p-box">p</div>
+                </div>
+                <div class="box section-footer">footer</div>
+            </div>
+
+            <!-- SECCIÓN 2 -->
+            <div class="section">
+                <div class="box section-header">header</div>
+                <div class="inner-columns">
+                    <div class="p-box">p</div>
+                    <div class="p-box">p</div>
+                </div>
+                <div class="box section-footer">footer</div>
+            </div>
+
+            <div class="box">footer</div>
+        </div>
+    </div>
+
+    <!-- FOOTER INFERIOR -->
+    <div class="box bottom-footer">footer</div>
+
+</div>
+
+</body>
+</html>
