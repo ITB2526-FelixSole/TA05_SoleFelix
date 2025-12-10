@@ -10,3 +10,175 @@
     <p>Aquesta és la meva pàgina web d'index bàsica.</p>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura de Webframe</title>
+    <style>
+        /* RESET BÁSICO Y ESTILO GLOBAL */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    font-family: monospace;
+    font-size: 14px;
+    display: flex; /* Usamos Flexbox para la estructura principal (vertical) */
+    flex-direction: column;
+    min-height: 100vh; /* Para que el footer inferior quede siempre abajo */
+}
+
+/* Estilo común a todas las cajas */
+header, footer, nav, p, aside, main, section, div {
+    border: 1px solid #555; /* Borde gris sutil como en el wireframe */
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 1. HEADER superior (Ancho completo) */
+.global-header {
+    height: 50px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* 2. LAYOUT PRINCIPAL: Define las dos grandes columnas (SIDEBAR y MAIN CONTENT) */
+.main-layout {
+    display: grid;
+    /* Define la sidebar de 200px y el contenido principal toma el resto (1fr) */
+    grid-template-columns: 200px 1fr;
+    gap: 10px;
+    padding: 0 10px; /* Añadir padding a los lados para que no choque con los bordes del body */
+    flex-grow: 1; /* Permite que este contenedor se expanda */
+}
+
+/* Columna Izquierda (SIDEBAR) */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-header { height: 100px; }
+.sidebar-nav { flex-grow: 1; } /* Hace que el NAV ocupe el espacio restante */
+.sidebar-footer-1, .sidebar-footer-2 { height: 50px; }
+
+/* Contenido Principal (MAIN CONTENT) */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0; /* Ya tiene padding del main-layout */
+    border: none; /* Quitamos el borde del contenedor MAIN para que solo lo tengan los bloques internos */
+}
+
+/* Estilo común para Bloque de Contenido 1 y 2 */
+.content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #555;
+}
+
+/* Contenedor de las dos columnas anidadas dentro de cada bloque */
+.block-columns {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    /* Quitamos el padding para evitar doble borde */
+    padding: 0; 
+    border: none;
+}
+
+/* Columna Anidada Izquierda */
+.block-col-left {
+    display: flex;
+    flex-direction: column;
+    /* Proporción aproximada del 40% del ancho */
+    width: 40%;
+    gap: 10px;
+    padding: 10px;
+}
+
+.block-col-left header { height: 50px; }
+.block-col-left .content-p { flex-grow: 1; height: 150px; }
+
+/* Columna Anidada Derecha */
+.block-col-right {
+    /* Proporción aproximada del 60% del ancho */
+    width: 60%; 
+    padding: 10px;
+}
+
+.block-col-right .content-p { 
+    height: 210px; /* Ajustamos la altura para que coincida con la altura total de la columna izquierda (50+10+150) */
+}
+
+.block-footer { height: 40px; }
+.inner-main-footer { height: 40px; }
+
+/* 3. FOOTER Inferior (Ancho completo) */
+.global-footer-bottom {
+    height: 60px;
+    width: calc(100% - 20px); /* Ajustar el ancho por el padding lateral del body */
+    margin: 10px auto; /* Centrar y añadir margen */
+}
+    </style>
+</head>
+<body>
+
+    <header class="global-header">header</header>
+
+    <div class="main-layout">
+        
+        <aside class="sidebar">
+            <header class="sidebar-header">header</header>
+            <nav class="sidebar-nav">nav</nav>
+            <footer class="sidebar-footer-1">footer</footer>
+            <footer class="sidebar-footer-2">footer</footer>
+        </aside>
+
+        <main class="main-content">
+            
+            <section class="content-block">
+                <div class="block-columns">
+                    <div class="block-col-left">
+                        <header>header</header>
+                        <p class="content-p">p</p>
+                    </div>
+                    <div class="block-col-right">
+                        <p class="content-p">p</p>
+                    </div>
+                </div>
+                <footer class="block-footer">footer</footer>
+            </section>
+
+            <section class="content-block">
+                <div class="block-columns">
+                    <div class="block-col-left">
+                        <header>header</header>
+                        <p class="content-p">p</p>
+                    </div>
+                    <div class="block-col-right">
+                        <p class="content-p">p</p>
+                    </div>
+                </div>
+                <footer class="block-footer">footer</footer>
+            </section>
+
+            <footer class="inner-main-footer">footer</footer>
+        </main>
+    </div>
+
+    <footer class="global-footer-bottom">footer</footer>
+
+</body>
+</html>
