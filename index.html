@@ -12,124 +12,136 @@
 </html>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estructura de Webframe</title>
+    <title>Wireframe Estructura</title>
     <style>
-        /* RESET BÁSICO Y ESTILO GLOBAL */
+        /* RESET BÀSIC I ESTIL GLOBAL */
 body {
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Fondo oscuro */
-    color: white; /* Texto blanco */
+    background-color: #000; /* Fons negre per a l'efecte exacte */
+    color: #fff; /* Text blanc */
     font-family: monospace;
     font-size: 14px;
-    display: flex; /* Usamos Flexbox para la estructura principal (vertical) */
+    display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Para que el footer inferior quede siempre abajo */
+    min-height: 100vh;
 }
 
-/* Estilo común a todas las cajas */
+/* Estil comú a totes les caixes, recreant la línia blanca */
 header, footer, nav, p, aside, main, section, div {
-    border: 1px solid #555; /* Borde gris sutil como en el wireframe */
+    border: 1px solid #fff; /* Borde blanc per a l'efecte wireframe */
     padding: 10px;
     text-align: center;
-    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto */
+    box-sizing: border-box; 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 1. HEADER superior (Ancho completo) */
+/* 1. HEADER superior */
 .global-header {
-    height: 50px;
+    height: 40px;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Petit espai de separació */
 }
 
-/* 2. LAYOUT PRINCIPAL: Define las dos grandes columnas (SIDEBAR y MAIN CONTENT) */
+/* 2. LAYOUT PRINCIPAL: Defineix les dues grans columnes (Sidebar i Contingut) */
 .main-layout {
     display: grid;
-    /* Define la sidebar de 200px y el contenido principal toma el resto (1fr) */
-    grid-template-columns: 200px 1fr;
-    gap: 10px;
-    padding: 0 10px; /* Añadir padding a los lados para que no choque con los bordes del body */
-    flex-grow: 1; /* Permite que este contenedor se expanda */
+    /* Sidebar de 100px (més ample per al nav) i el contingut principal agafa la resta */
+    grid-template-columns: 120px 1fr; 
+    gap: 5px;
+    padding: 0 5px; /* Ajust de marges a dalt/baix */
+    flex-grow: 1; 
 }
 
-/* Columna Izquierda (SIDEBAR) */
+/* COLUMNA ESQUERRA (SIDEBAR) */
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
-.sidebar-header { height: 100px; }
-.sidebar-nav { flex-grow: 1; } /* Hace que el NAV ocupe el espacio restante */
-.sidebar-footer-1, .sidebar-footer-2 { height: 50px; }
+.sidebar-header { height: 40px; }
+.sidebar-nav { flex-grow: 1; } /* El nav ocupa l'espai central gran */
+.sidebar-footer { height: 30px; }
 
-/* Contenido Principal (MAIN CONTENT) */
+/* COLUMNA DRETA (MAIN CONTENT) */
 .main-content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 0; /* Ya tiene padding del main-layout */
-    border: none; /* Quitamos el borde del contenedor MAIN para que solo lo tengan los bloques internos */
+    gap: 5px;
+    padding: 0;
+    border: none; /* El contenidor principal no té el seu propi borde */
 }
 
-/* Estilo común para Bloque de Contenido 1 y 2 */
+.main-content-header { height: 40px; }
+
+/* Estil comú per als dos Bloques de Contenido (Projectes) */
 .content-block {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    border: 1px solid #555;
+    gap: 5px;
+    padding: 5px;
+    border: 1px solid #fff;
+    /* El borde exterior el posa l'etiqueta SECTION */
 }
 
-/* Contenedor de las dos columnas anidadas dentro de cada bloque */
-.block-columns {
+/* FILA SUPERIOR (header + p gran dret) */
+.block-top-row {
     display: flex;
-    gap: 10px;
     width: 100%;
-    /* Quitamos el padding para evitar doble borde */
-    padding: 0; 
+    gap: 5px;
+    padding: 0;
     border: none;
+    height: 100px; /* Alçada fixa aproximada per a la part superior */
 }
 
-/* Columna Anidada Izquierda */
-.block-col-left {
+.block-header { 
+    width: 30%; /* L'header esquerre és aproximadament el 30% */
+    height: 100%;
+}
+
+.content-p-large {
+    width: 70%; /* El 'p' de la dreta agafa el 70% restant */
+    height: 100%;
+}
+
+/* FILA MITJANA (p petit esquerre + p gran dret) */
+.block-middle-row {
     display: flex;
-    flex-direction: column;
-    /* Proporción aproximada del 40% del ancho */
-    width: 40%;
-    gap: 10px;
-    padding: 10px;
+    width: 100%;
+    gap: 5px;
+    padding: 0;
+    border: none;
+    height: 150px; /* Alçada fixa aproximada per a la part inferior */
 }
 
-.block-col-left header { height: 50px; }
-.block-col-left .content-p { flex-grow: 1; height: 150px; }
-
-/* Columna Anidada Derecha */
-.block-col-right {
-    /* Proporción aproximada del 60% del ancho */
-    width: 60%; 
-    padding: 10px;
+.content-p-small {
+    width: 30%; /* El 'p' esquerre és aproximadament el 30% */
+    height: 100%;
 }
 
-.block-col-right .content-p { 
-    height: 210px; /* Ajustamos la altura para que coincida con la altura total de la columna izquierda (50+10+150) */
+/* En el wireframe, la segona caixa 'p' gran ocupa l'espai restant de la columna */
+.block-middle-row .content-p-large {
+    width: 70%; 
+    height: 100%;
 }
 
-.block-footer { height: 40px; }
-.inner-main-footer { height: 40px; }
+/* Ajustes finals per als footers interns */
+.block-footer { height: 30px; }
+.inner-main-footer { height: 30px; }
 
-/* 3. FOOTER Inferior (Ancho completo) */
-.global-footer-bottom {
-    height: 60px;
-    width: calc(100% - 20px); /* Ajustar el ancho por el padding lateral del body */
-    margin: 10px auto; /* Centrar y añadir margen */
+
+/* 3. FOOTERS Inferiors (Ancho completo) */
+.global-footer-bottom-1, .global-footer-bottom-2 {
+    height: 30px;
+    width: calc(100% - 10px); /* Ajustar per al padding lateral del main-layout */
+    margin: 5px auto; 
 }
     </style>
 </head>
@@ -142,35 +154,39 @@ header, footer, nav, p, aside, main, section, div {
         <aside class="sidebar">
             <header class="sidebar-header">header</header>
             <nav class="sidebar-nav">nav</nav>
-            <footer class="sidebar-footer-1">footer</footer>
-            <footer class="sidebar-footer-2">footer</footer>
+            <footer class="sidebar-footer">footer</footer>
+            <footer class="sidebar-footer">footer</footer>
         </aside>
 
         <main class="main-content">
             
+            <header class="main-content-header">header</header>
+
             <section class="content-block">
-                <div class="block-columns">
-                    <div class="block-col-left">
-                        <header>header</header>
-                        <p class="content-p">p</p>
-                    </div>
-                    <div class="block-col-right">
-                        <p class="content-p">p</p>
-                    </div>
+                
+                <div class="block-top-row">
+                    <header class="block-header">header</header>
+                    <div class="content-p-large">p</div>
                 </div>
+
+                <div class="block-middle-row">
+                    <div class="content-p-small">p</div>
+                </div>
+
                 <footer class="block-footer">footer</footer>
             </section>
 
             <section class="content-block">
-                <div class="block-columns">
-                    <div class="block-col-left">
-                        <header>header</header>
-                        <p class="content-p">p</p>
-                    </div>
-                    <div class="block-col-right">
-                        <p class="content-p">p</p>
-                    </div>
+                 
+                <div class="block-top-row">
+                    <header class="block-header">header</header>
+                    <div class="content-p-large">p</div>
                 </div>
+
+                <div class="block-middle-row">
+                    <div class="content-p-small">p</div>
+                </div>
+
                 <footer class="block-footer">footer</footer>
             </section>
 
@@ -178,7 +194,8 @@ header, footer, nav, p, aside, main, section, div {
         </main>
     </div>
 
-    <footer class="global-footer-bottom">footer</footer>
+    <footer class="global-footer-bottom-1">footer</footer>
+    <footer class="global-footer-bottom-2">footer</footer>
 
 </body>
 </html>
