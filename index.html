@@ -9,33 +9,34 @@
         /* Layout y Estructuras */
         .home-grid { display: grid; grid-template-columns: 1fr 320px; gap: 30px; margin-top: 20px; }
 
-        /* Bienvenida Typing */
+        /* Bienvenida Typing - Canviat a Blau */
         .welcome-container {
             margin: 20px 0 40px 0;
             padding: 20px;
-            border-left: 4px solid #00FF00;
-            background: rgba(0, 30, 0, 0.1);
+            border-left: 4px solid #00F0FF; /* Borda Blava */
+            background: rgba(0, 26, 51, 0.2); /* Fons tintat de blau fosc */
             min-height: 60px;
         }
-        #welcome-text { font-size: 1.5rem; font-weight: bold; color: #00FF00; text-shadow: 0 0 8px #00FF00; }
-        .cursor { display: inline-block; width: 10px; background-color: #00FF00; margin-left: 5px; animation: blink 1s infinite; }
+        #welcome-text { font-size: 1.5rem; font-weight: bold; color: #00F0FF; text-shadow: 0 0 8px #00F0FF; } /* Text i glow Blau */
+        .cursor { display: inline-block; width: 10px; background-color: #00F0FF; margin-left: 5px; animation: blink 1s infinite; } /* Cursor Blau */
         @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
 
-        /* Gambling Terminal */
-        .casino-box { margin: 20px 0; border: 1px solid #00FF00; padding: 15px; background: rgba(0, 20, 0, 0.9); text-align: center; max-width: 350px; }
-        .roulette-display { font-size: 2rem; color: #00FF00; margin: 10px 0; text-shadow: 0 0 8px #00FF00; border: 1px dashed #00FF00; display: inline-block; padding: 5px 20px; }
+        /* Gambling Terminal - Canviat a Blau */
+        .casino-box { margin: 20px 0; border: 1px solid #00F0FF; padding: 15px; background: rgba(0, 26, 51, 0.9); text-align: center; max-width: 350px; }
+        .roulette-display { font-size: 2rem; color: #00F0FF; margin: 10px 0; text-shadow: 0 0 8px #00F0FF; border: 1px dashed #00F0FF; display: inline-block; padding: 5px 20px; }
 
-        /* Mapa Cuadrado Centrado */
+        /* Mapa Cuadrado Centrado - Canviat a Blau */
         .map-box { position: sticky; top: 20px; display: flex; flex-direction: column; align-items: center; }
-        .map-container { width: 300px; height: 300px; border: 2px solid #00FF00; overflow: hidden; margin-bottom: 15px; }
-        .map-iframe { width: 100%; height: 100%; border: none; filter: invert(90%) hue-rotate(90deg) brightness(1.2); }
+        .map-container { width: 300px; height: 300px; border: 2px solid #00F0FF; overflow: hidden; margin-bottom: 15px; }
+        /* hue-rotate canviat a 190deg per obtenir blau sobre el mapa invertit */
+        .map-iframe { width: 100%; height: 100%; border: none; filter: invert(90%) hue-rotate(190deg) brightness(1.2); }
 
         @media (max-width: 900px) { .home-grid { grid-template-columns: 1fr; } .map-box { position: static; } }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"><img src="Logo.png" alt="Logo" width="75" height="75" style="border:1px solid #00FF00;"></div>
+        <div class="logo"><img src="Logo.png" alt="Logo" width="75" height="75" style="border:1px solid #00F0FF;"></div>
         <nav>
             <ul>
                 <li><a href="index.html" data-text="Home">Home</a></li>
@@ -47,10 +48,10 @@
 
     <main>
         <section class="welcome-container">
-            <span id="welcome-text"></span><span class="cursor">&nbsp;</span>
+            <span id="welcome-text"></span><span class="cursor"> </span>
         </section>
 
-        <section class="itb-info-top" style="border-bottom: 1px dashed #00FF00; margin-bottom:30px; padding-bottom:20px;">
+        <section class="itb-info-top" style="border-bottom: 1px dashed #00F0FF; margin-bottom:30px; padding-bottom:20px;">
             <h2>Academic Profile: ITB Barcelona</h2>
             <article>
                 <h4>Institut Tecnològic de Barcelona | ASIX Cybersecurity</h4>
@@ -79,11 +80,11 @@
 
                 <section class="casino-box">
                     <h5>[ GAMBLING TERMINAL ]</h5>
-                    <div style="color: #00FF00; font-size: 0.8rem;">CREDITS: <span id="user-credits">1000</span>$</div>
+                    <div style="color: #00F0FF; font-size: 0.8rem;">CREDITS: <span id="user-credits">1000</span>$</div>
                     <div class="roulette-display" id="roulette-num">00</div>
                     <div class="casino-controls">
                         <label>BET: </label>
-                        <input type="number" id="bet-amount" value="100" style="background:#000; color:#00FF00; border:1px solid #00FF00; width:60px;">
+                        <input type="number" id="bet-amount" value="100" style="background:#000; color:#00F0FF; border:1px solid #00F0FF; width:60px;">
                         <button id="spin-btn" onclick="spinRoulette()" class="button" data-text="SPIN!">SPIN!</button>
                     </div>
                     <p id="game-msg" style="margin-top: 10px; font-size: 0.7rem; color: #888;">System ready.</p>

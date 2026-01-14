@@ -1,8 +1,8 @@
-/* ESTILO PYTHON RETRO / TERMINAL - VERDE SUAVE */
+/* ESTILO PYTHON RETRO / TERMINAL - BLAU ELÈCTRIC */
 body {
     margin: 0;
     background-color: #000;
-    color: #00D000;
+    color: #00F0FF; /* Canviat a Blau Elèctric */
     font-family: 'Courier New', Courier, monospace;
     display: grid;
     grid-template-areas: "header" "main" "footer";
@@ -17,12 +17,13 @@ header {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
-    border-bottom: 1px solid #00D000;
+    border-bottom: 1px solid #00F0FF; /* Borda Blava */
 }
 
 .logo img {
-    border: 1px solid #00D000;
-    filter: brightness(1) sepia(100%) hue-rotate(90deg);
+    border: 1px solid #00F0FF; /* Borda Blava */
+    /* Ajustat a 170deg per garantir blau pur, abans era 90deg (verd) */
+    filter: brightness(1) sepia(100%) hue-rotate(170deg);
 }
 
 nav ul {
@@ -33,7 +34,7 @@ nav ul {
 }
 
 nav a, .button {
-    color: #00D000;
+    color: #00F0FF; /* Text Blau */
     text-decoration: none;
     font-weight: bold;
     position: relative;
@@ -58,7 +59,7 @@ main {
 }
 
 article {
-    border: 1px solid #00D000;
+    border: 1px solid #00F0FF; /* Borda caixa Blava */
     display: grid;
     grid-template-areas: "h4 h4" "p btn";
     grid-template-columns: 1fr 100px;
@@ -67,7 +68,7 @@ article {
 
 article h4 {
     grid-area: h4;
-    background: #00D000;
+    background: #00F0FF; /* Fons títol Blau */
     color: #000;
     margin: 0;
     padding: 5px 15px;
@@ -78,7 +79,7 @@ article h4 {
     grid-area: p;
     padding: 15px;
     margin: 0;
-    border-right: 1px solid #00D000;
+    border-right: 1px solid #00F0FF; /* Separador Blau */
 }
 
 .button {
@@ -100,17 +101,19 @@ article h4 {
 }
 
 .clock-container {
-    border: 1px solid #00D000;
+    border: 1px solid #00F0FF; /* Borda rellotge Blava */
     padding: 5px 15px;
-    background: #001a00;
+    background: #001a33; /* Fons blau fosc (abans verd fosc) */
     display: inline-block;
     font-size: 1.2rem;
     letter-spacing: 2px;
-    box-shadow: inset 0 0 5px #00D000;
+    box-shadow: inset 0 0 5px #00F0FF; /* Brillo intern Blau */
 }
 
 /* --- EFECTO GLITCH --- */
-.button:hover, nav a:hover { background: #001a00; }
+.button:hover, nav a:hover {
+    background: #001a33; /* Fons hover Blau fosc */
+}
 
 .button:hover::after, .button:hover::before,
 nav a:hover::after, nav a:hover::before {
@@ -120,7 +123,7 @@ nav a:hover::after, nav a:hover::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #001a00;
+    background: #001a33; /* Fons glitch Blau fosc */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -128,13 +131,13 @@ nav a:hover::after, nav a:hover::before {
 
 .button:hover::before, nav a:hover::before {
     left: 2px;
-    text-shadow: -1px 0 #aa00aa;
+    text-shadow: -1px 0 #ff00ff; /* Magenta (per contrast, com el ciberpunk) */
     animation: glitch-anim 0.3s infinite linear;
 }
 
 .button:hover::after, nav a:hover::after {
     left: -2px;
-    text-shadow: 1px 0 #00aaaa;
+    text-shadow: 1px 0 #00F0FF; /* Ombra Blava Elèctrica */
     animation: glitch-anim 0.3s infinite linear reverse;
 }
 
@@ -149,5 +152,5 @@ footer {
     grid-area: footer;
     text-align: center;
     padding: 20px;
-    border-top: 1px solid #00D000;
+    border-top: 1px solid #00F0FF; /* Borda superior footer Blava */
 }
