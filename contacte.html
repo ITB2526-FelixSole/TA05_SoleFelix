@@ -8,18 +8,19 @@
     <style>
         /* Ajuste para que el canvas sea 100% responsivo y rectangular */
         #galaga-canvas {
-            background: radial-gradient(circle, #001000 0%, #000 100%);
+            /* Fons canviat: de negre-verd a negre-blau profund */
+            background: radial-gradient(circle, #000a1a 0%, #000 100%);
             display: block;
             width: 100%; /* Se adapta al ancho del article */
             height: auto;
-            border: 1px solid #00D000;
+            border: 1px solid #00F0FF; /* Borde Blau */
             image-rendering: pixelated;
         }
         .game-instructions {
             text-align: center;
             font-size: 0.7rem;
             margin-top: 10px;
-            color: #00D000;
+            color: #00F0FF; /* Text instruccions Blau */
             letter-spacing: 2px;
             opacity: 0.7;
         }
@@ -42,9 +43,9 @@
             <h4>Establish Connection:</h4>
             <div class="cuerpo-caja">
                 <form id="contactForm">
-                    <label>Name: </label><input type="text" required style="width:100%; margin-bottom:10px; background:#000; border:1px solid #005500; color:#00D000;">
-                    <label>Email: </label><input type="email" required style="width:100%; margin-bottom:10px; background:#000; border:1px solid #005500; color:#00D000;">
-                    <label>Message: </label><textarea rows="3" style="width:100%; background:#000; border:1px solid #005500; color:#00D000;"></textarea>
+                    <label>Name: </label><input type="text" required style="width:100%; margin-bottom:10px; background:#000; border:1px solid #00F0FF; color:#00F0FF;">
+                    <label>Email: </label><input type="email" required style="width:100%; margin-bottom:10px; background:#000; border:1px solid #00F0FF; color:#00F0FF;">
+                    <label>Message: </label><textarea rows="3" style="width:100%; background:#000; border:1px solid #00F0FF; color:#00F0FF;"></textarea>
                 </form>
             </div>
             <button type="submit" form="contactForm" class="button" data-text="SEND">SEND</button>
@@ -112,7 +113,8 @@
         }
 
         function drawEnemy(x, y, row) {
-            const colors = ["#FF0044", "#00D000", "#FFFF00"];
+            // Canviat #00D000 (verd) per #00F0FF (blau cian)
+            const colors = ["#FF0044", "#00F0FF", "#FFFF00"];
             ctx.fillStyle = colors[row % 3];
             ctx.fillRect(x+5, y, 14, 5); ctx.fillRect(x, y+5, 24, 8);
             ctx.fillRect(x+4, y+13, 4, 5); ctx.fillRect(x+16, y+13, 4, 5);
@@ -136,7 +138,9 @@
             if(!gameActive) return;
 
             ctx.fillStyle = "#000"; ctx.fillRect(0,0,600,350);
-            ctx.fillStyle = "rgba(0, 208, 0, 0.4)";
+
+            // Estrelles del fons: de verdós a blavós
+            ctx.fillStyle = "rgba(0, 240, 255, 0.4)";
             stars.forEach(s => { s.y += s.s; if(s.y > 350) s.y = 0; ctx.fillRect(s.x, s.y, 1, 1); });
 
             if(keys['ArrowLeft'] && player.x > 0) player.x -= player.speed;
@@ -174,7 +178,8 @@
 
             drawRetroShip(player.x, player.y);
 
-            ctx.fillStyle = "#00D000";
+            // Text de Puntuació i Sector: Canviat a Blau
+            ctx.fillStyle = "#00F0FF";
             ctx.font = "bold 12px Courier New";
             ctx.fillText(`SCORE: ${score.toString().padStart(6, '0')}`, 10, 20);
             ctx.fillText(`SECTOR: ${sector}`, 520, 20);
